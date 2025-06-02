@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Crypto Converter</title>
+	<link rel="stylesheet" href="../css/convert.css">
+</head>
+<body>
+	<div class="container">
+		<button class="back-btn" onclick="window.location.href='/'">
+			<img src="../icons/back.png" alt="Back Icon" class="back-icon">Назад
+		</button>
+		<h1 class="main-title">USDT в RUB конверт</h1>
+		<div class="converter-box">
+			<div class="input-group">
+				<img src="../icons/usdt.png" alt="USDT Icon" class="currency-icon">
+				<input type="number" id="usdt-input" placeholder="Кол-во USDT" step="0.01">
+			</div>
+			<div class="arrow">↔</div>
+			<div class="input-group">
+				<img src="../icons/rub.png" alt="RUB Icon" class="currency-icon">
+				<input type="number" id="rub-input" placeholder="Рубли" step="0.01" readonly>
+			</div>
+			<button class="btn convert-btn" onclick="convertUSDTtoRUB()">
+				<img src="../icons/convert.png" alt="Convert Icon" class="btn-icon">Конвертировать
+			</button>
+		</div>
+	</div>
+	<script src="../javascript/convert.js"></script>
+</body>
+</html>
