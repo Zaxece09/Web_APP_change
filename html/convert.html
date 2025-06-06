@@ -5,8 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Crypto Converter</title>
 	<link rel="stylesheet" href="../css/convert.css">
+	    <link rel="stylesheet" href="../css/loader.css">
 </head>
 <body>
+    <div id="pageLoader" class="page-loader">
+        <div class="loader-content">
+            <div class="loader-title">Загрузка конвертера...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+            <div class="loader-text">Инициализация...</div>
+        </div>
+    </div>
 	<div class="container">
 		<button class="back-btn" onclick="window.location.href='/'">
 			<img src="../icons/back.png" alt="Back Icon" class="back-icon">Назад
@@ -27,6 +37,7 @@
 			</button>
 		</div>
 	</div>
+	<script src="../javascript/loader.js"></script>
 	<script src="../javascript/convert.js"></script>
 </body>
 </html>

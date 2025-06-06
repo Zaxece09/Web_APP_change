@@ -49,7 +49,7 @@ body {
     width: 100%;
     max-width: 600px;
     overflow-y: auto;
-    padding: 10px;
+    padding: 10px 5px;
     max-height: calc(100vh - 200px);
 }
 
@@ -194,10 +194,11 @@ body {
 }
 
 .currency-icon {
-    width: 20px;
-    height: 20px;
-    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
     vertical-align: middle;
+    display: inline-block;
 }
 
 .close-btn {
@@ -212,20 +213,22 @@ body {
 }
 
 .close-btn:hover {
-    color: #D4CBB3;
+    background: linear-gradient(45deg, #A8997C, #D4CBB3);
 }
 
 .status-icon {
-    width: 20px;
-    height: 20px;
-    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
     vertical-align: middle;
+    display: inline-block;
 }
 
 @media (max-width: 480px) {
     .container {
-        height: 100%;
-        top: 0px;
+        bottom: 45px;
+        height: 92%;
+        padding: 15px;
     }
 
     .button-group {
@@ -250,9 +253,22 @@ body {
         margin: 15px 0;
     }
 
-    .history-item {
-        font-size: 0.8rem;
-        padding: 10px 15px;
+    .trade-item {
+        padding: 12px 8px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        justify-content: flex-start;
+    }
+
+    .trade-status {
+        align-self: flex-end;
+        margin-top: 8px;
+    }
+
+    .currency-icon {
+        width: 16px;
+        height: 16px;
     }
 
     .modal-content {
@@ -268,9 +284,330 @@ body {
     .modal-content p {
         font-size: 0.9rem;
     }
+}
 
-    .currency-icon {
-        width: 15px;
-        height: 15px;
+/* Новые стили для улучшенного дизайна истории */
+.history-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 5px;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.section-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.trade-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(45deg, rgba(139, 125, 107, 0.9), rgba(168, 153, 124, 0.9));
+    border-radius: 12px;
+    padding: 16px 12px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.trade-item:hover {
+    background: linear-gradient(45deg, #A8997C, #D4CBB3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.trade-info {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    margin-right: auto;
+}
+
+.trade-id {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0 2px 0;
+    padding: 0;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.trade-date {
+    font-size: 0.85rem;
+    margin: 0 0 2px 0;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.trade-amount {
+    font-size: 0.95rem;
+    margin: 0 0 2px 0;
+    padding: 0;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.trade-time {
+    font-size: 0.85rem;
+    margin: 0;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.trade-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    min-width: 70px;
+    margin-left: 8px;
+}
+
+.status-success {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.status-pending {
+    background: rgba(255, 193, 7, 0.2);
+    color: #FFC107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.status-cancelled {
+    background: rgba(244, 67, 54, 0.2);
+    color: #F44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.empty-history {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.empty-history p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.empty-btn {
+    background: linear-gradient(45deg, rgba(139, 125, 107, 0.8), rgba(168, 153, 124, 0.8));
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.empty-btn:hover {
+    background: linear-gradient(45deg, #A8997C, #D4CBB3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для модального окна с деталями */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.trade-details-modal {
+    background: linear-gradient(45deg, rgba(139, 125, 107, 0.95), rgba(168, 153, 124, 0.95));
+    border-radius: 12px;
+    width: 100%;
+    max-width: 380px;
+    max-height: 80vh;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    animation: modalOpen 0.3s ease-out forwards;
+    overflow: hidden;
+    position: relative;
+    margin: 0 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease, transform 0.2s ease;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-close:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    padding: 16px 20px 20px 20px;
+    max-height: calc(80vh - 80px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 12px;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    min-width: 60px;
+}
+
+.detail-value {
+    font-weight: 600;
+    color: #ffffff;
+    text-align: right;
+    font-size: 0.9rem;
+    word-break: break-word;
+    flex: 1;
+}
+
+.detail-value.status {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    text-align: center;
+    flex: none;
+}
+
+.status-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .modal-overlay {
+        padding: 10px;
+        align-items: flex-start;
+        padding-top: 40px;
+    }
+
+    .trade-details-modal {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        max-height: calc(100vh - 80px);
+    }
+
+    .modal-header {
+        padding: 12px 16px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .modal-close {
+        font-size: 20px;
+        padding: 2px 6px;
+    }
+
+    .modal-body {
+        padding: 12px 16px 16px 16px;
+        max-height: calc(100vh - 140px);
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        padding: 8px 0;
+    }
+
+    .detail-label {
+        font-size: 0.8rem;
+        min-width: auto;
+    }
+
+    .detail-value {
+        text-align: left;
+        font-size: 0.85rem;
+    }
+
+    .detail-value.status {
+        align-self: flex-start;
     }
 }

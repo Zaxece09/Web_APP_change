@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Профиль</title>
     <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/loader.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
+    <div id="pageLoader" class="page-loader">
+        <div class="loader-content">
+            <div class="loader-title">Загрузка профиля...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+            <div class="loader-text">Получение данных профиля...</div>
+        </div>
+    </div>
     <div class="container">
         <h1>Профиль</h1>
         <form id="profileForm" class="profile-form">
@@ -106,6 +116,7 @@
             window.location.href = url;
         }
     </script>
+    <script src="../javascript/loader.js"></script>
     <script src="../javascript/profile.js"></script>
 </body>
 </html>

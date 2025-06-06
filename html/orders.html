@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Заказы</title>
+	<link rel="stylesheet" href="../css/orders.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body id="admin-body" class="admin-body">
+	<input type="checkbox" id="nav-toggle" class="nav-toggle">
+	<div class="sidebar" id="sidebar">
+		<div class="sidebar-header" id="sidebar-header">
+			<h3 class="sidebar-title">Админ-панель</h3>
+		</div>
+		<ul class="sidebar-menu" id="sidebar-menu">
+			<li class="sidebar-item" id="sidebar-item-overview"><a href="admin.html" class="sidebar-link"><i class="fas fa-tachometer-alt sidebar-icon"></i> Обзор</a></li>
+			<li class="sidebar-item" id="sidebar-item-users"><a href="users.html" class="sidebar-link"><i class="fas fa-users sidebar-icon"></i> Пользователи</a></li>
+			<li class="sidebar-item active" id="sidebar-item-requests"><a href="orders.html" class="sidebar-link"><i class="fas fa-file-invoice-dollar sidebar-icon"></i> Заказы</a></li>
+			<li class="sidebar-item" id="sidebar-item-settings"><a href="settings.html" class="sidebar-link"><i class="fas fa-cogs sidebar-icon"></i> Настройки</a></li>
+		</ul>
+	</div>
+	<div class="main-content" id="main-content">
+		<header id="main-header" class="main-header">
+			<h2 class="header-title">
+				<label for="nav-toggle" class="nav-toggle-label">
+					<i class="fas fa-bars header-icon"></i>
+				</label>
+				Заказы
+			</h2>
+			<div class="user-wrapper" id="user-wrapper">
+				<img src="../icons/user.png" width="40px" height="40px" alt="User Avatar" class="user-avatar">
+				<div class="user-info">
+					<h4 class="user-name">Имя Админа</h4>
+					<small class="user-role">Супер админ</small>
+				</div>
+			</div>
+		</header>
+		<main id="main-section" class="main-section">
+			<div class="orders-management" id="orders-management">
+				<div class="card" id="orders-card">
+					<div class="card-header" id="orders-card-header">
+						<h3 class="card-title">Все заказы</h3>
+						<div class="actions" id="orders-actions">
+							<div class="search-wrapper" id="order-search-wrapper">
+								<input type="text" placeholder="Поиск по ID или пользователю..." class="search-input" id="order-search-input">
+							</div>
+							<select class="filter-select" id="order-filter-select">
+								<option value="" class="filter-option">Все статусы</option>
+								<option value="pending" class="filter-option">В ожидании</option>
+								<option value="in-progress" class="filter-option">В процессе</option>
+								<option value="completed" class="filter-option">Завершен</option>
+							</select>
+							<button class="card-button export-btn" id="export-orders-button" title="Экспортировать заказы в CSV">
+								<i class="fas fa-download button-icon"></i> Экспорт
+							</button>
+						</div>
+					</div>
+					<div class="card-body" id="orders-card-body">
+						<div class="table-responsive" id="orders-table-responsive">
+							<table id="orders-table">
+								<thead class="table-head">
+									<tr class="table-header-row">
+										<td class="table-header">ID Заказа</td>
+										<td class="table-header">Пользователь</td>
+										<td class="table-header">Дата</td>
+										<td class="table-header">Сумма</td>
+										<td class="table-header">Статус</td>
+										<td class="table-header">Действия</td>
+									</tr>
+								</thead>
+								<tbody class="table-body">
+									<tr class="table-row" id="order-row-1">
+										<td data-label="ID Заказа" class="table-cell order-id-cell">#1024</td>
+										<td data-label="Пользователь" class="table-cell user-cell">User One</td>
+										<td data-label="Дата" class="table-cell">19-07-2024</td>
+										<td data-label="Сумма" class="table-cell">$120</td>
+										<td data-label="Статус" class="table-cell"><span class="status purple status-indicator"></span>Рассмотрение</td>
+										<td data-label="Действия" class="table-cell">
+											<div class="action-buttons" id="action-buttons-1">
+												<button class="action-btn view-btn" id="view-order-1"><i class="fas fa-eye action-icon"></i></button>
+												<button class="action-btn edit-btn" id="edit-order-1"><i class="fas fa-edit action-icon"></i></button>
+											</div>
+										</td>
+									</tr>
+									<tr class="table-row" id="order-row-2">
+										<td data-label="ID Заказа" class="table-cell order-id-cell">#1025</td>
+										<td data-label="Пользователь" class="table-cell user-cell">User Two</td>
+										<td data-label="Дата" class="table-cell">19-07-2024</td>
+										<td data-label="Сумма" class="table-cell">$150</td>
+										<td data-label="Статус" class="table-cell"><span class="status pink status-indicator"></span>В процессе</td>
+										<td data-label="Действия" class="table-cell">
+											<div class="action-buttons" id="action-buttons-2">
+												<button class="action-btn view-btn" id="view-order-2"><i class="fas fa-eye action-icon"></i></button>
+												<button class="action-btn edit-btn" id="edit-order-2"><i class="fas fa-edit action-icon"></i></button>
+											</div>
+										</td>
+									</tr>
+									<tr class="table-row" id="order-row-3">
+										<td data-label="ID Заказа" class="table-cell order-id-cell">#1026</td>
+										<td data-label="Пользователь" class="table-cell user-cell">User Three</td>
+										<td data-label="Дата" class="table-cell">18-07-2024</td>
+										<td data-label="Сумма" class="table-cell">$200</td>
+										<td data-label="Статус" class="table-cell"><span class="status orange status-indicator"></span>В ожидании</td>
+										<td data-label="Действия" class="table-cell">
+											<div class="action-buttons" id="action-buttons-3">
+												<button class="action-btn view-btn" id="view-order-3"><i class="fas fa-eye action-icon"></i></button>
+												<button class="action-btn edit-btn" id="edit-order-3"><i class="fas fa-edit action-icon"></i></button>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<script src="../javascript/orders.js"></script>
+</body>
+</html>

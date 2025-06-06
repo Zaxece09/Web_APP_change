@@ -1,10 +1,9 @@
-// Автоматическое разворачивание Telegram WebApp на весь экран
-if (window.Telegram && window.Telegram.WebApp) {
-    window.Telegram.WebApp.ready();
-    window.Telegram.WebApp.expand();
-}
-
 document.addEventListener('DOMContentLoaded', () => {
+	if (window.pageLoader) {
+		window.pageLoader.init();
+		window.pageLoader.startPassportProgress();
+	}
+
 	const passportPreview = document.getElementById('passportPreview')
 	const passportInput = document.getElementById('passportInput')
 	const previewImage = document.getElementById('previewImage')
@@ -53,7 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	console.log('🎯 Используется User ID:', userid);
 
-	loadPassportPhoto();
+	loadPassportPhoto().then(() => {
+		if (window.pageLoader) {
+			window.pageLoader.completeProgress();
+		}
+	}).finally(() => {
+		if (window.pageLoader) {
+			setTimeout(() => {
+				window.pageLoader.hide();
+			}, 600);
+		}
+	});
 
 	async function loadPassportPhoto() {
 		try {

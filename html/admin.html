@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Админ-панель</title>
+	<link rel="stylesheet" href="../css/admin.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body id="admin-body">
+	<input type="checkbox" id="nav-toggle" class="nav-toggle">
+	<div class="sidebar" id="sidebar">
+		<div class="sidebar-header" id="sidebar-header">
+			<h3 class="sidebar-title">Админ-панель</h3>
+		</div>
+		<ul class="sidebar-menu" id="sidebar-menu">
+			<li class="sidebar-item active" id="sidebar-item-overview"><a href="admin.html" class="sidebar-link"><i class="fas fa-tachometer-alt sidebar-icon"></i> Обзор</a></li>
+			<li class="sidebar-item" id="sidebar-item-users"><a href="users.html" class="sidebar-link"><i class="fas fa-users sidebar-icon"></i> Пользователи</a></li>
+			<li class="sidebar-item" id="sidebar-item-requests"><a href="orders.html" class="sidebar-link"><i class="fas fa-file-invoice-dollar sidebar-icon"></i> Заказы</a></li>
+			<li class="sidebar-item" id="sidebar-item-settings"><a href="settings.html" class="sidebar-link"><i class="fas fa-cogs sidebar-icon"></i> Настройки</a></li>
+		</ul>
+	</div>
+	<div class="main-content" id="main-content">
+		<header id="main-header">
+			<h2 class="header-title">
+				<label for="nav-toggle" class="nav-toggle-label">
+					<i class="fas fa-bars header-icon"></i>
+				</label>Обзор
+			</h2>
+			<div class="user-wrapper" id="user-wrapper">
+				<img src="../icons/user.png" width="40px" height="40px" alt="User Avatar" class="user-avatar">
+				<div class="user-info">
+					<h4 class="user-name">ID: скрыто</h4>
+					<small class="user-role">Администратор</small>
+				</div>
+			</div>
+		</header>
+		<main id="main-section">
+			<div class="cards" id="cards-container">
+				<div class="card-single" id="card-clients">
+					<div class="card-content">
+						<h1 class="card-number">54</h1>
+						<span class="card-label">Клиенты</span>
+					</div>
+					<div class="card-icon-wrapper">
+						<i class="fas fa-users card-icon"></i>
+					</div>
+				</div>
+				<div class="card-single" id="card-projects">
+					<div class="card-content">
+						<h1 class="card-number">79</h1>
+						<span class="card-label">Проекты</span>
+					</div>
+					<div class="card-icon-wrapper">
+						<i class="fas fa-clipboard-list card-icon"></i>
+					</div>
+				</div>
+				<div class="card-single" id="card-orders">
+					<div class="card-content">
+						<h1 class="card-number">124</h1>
+						<span class="card-label">Заказы</span>
+					</div>
+					<div class="card-icon-wrapper">
+						<i class="fas fa-shopping-cart card-icon"></i>
+					</div>
+				</div>
+				<div class="card-single" id="card-income">
+					<div class="card-content">
+						<h1 class="card-number">$6k</h1>
+						<span class="card-label">Доход</span>
+					</div>
+					<div class="card-icon-wrapper">
+						<i class="fas fa-wallet card-icon"></i>
+					</div>
+				</div>
+			</div>
+
+			<div class="recent-grid" id="recent-grid">
+				<div class="projects" id="projects-section">
+					<div class="card" id="projects-card">
+						<div class="card-header" id="projects-card-header">
+							<h3 class="card-title">Последние заявки</h3>
+							<button class="card-button">Смотреть все <i class="fas fa-arrow-right button-icon"></i></button>
+						</div>
+						<div class="card-body" id="projects-card-body">
+							<div class="table-responsive" id="projects-table-responsive">
+								<table id="requests-table">
+									<thead>
+										<tr class="table-header-row">
+											<td class="table-header">Пользователь</td>
+											<td class="table-header">Сумма</td>
+											<td class="table-header">Дата</td>
+											<td class="table-header">Статус</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="table-row" id="request-row-1">
+											<td class="table-cell">Алексей. В</td>
+											<td class="table-cell">$120</td>
+											<td class="table-cell">05.06.2025</td>
+											<td class="table-cell"><span class="status green status-indicator"></span>завершен</td>
+										</tr>
+										<tr class="table-row" id="request-row-2">
+											<td class="table-cell">Владимир. А</td>
+											<td class="table-cell">$150</td>
+											<td class="table-cell">05.06.2025</td>
+											<td class="table-cell"><span class="status pink status-indicator"></span>в процессе</td>
+										</tr>
+										<tr class="table-row" id="request-row-3">
+											<td class="table-cell">Сергей. В</td>
+											<td class="table-cell">$200</td>
+											<td class="table-cell">05.06.2025</td>
+											<td class="table-cell"><span class="status orange status-indicator"></span>в ожидании</td>
+										</tr>
+										<tr class="table-row" id="request-row-4">
+											<td class="table-cell">Никита. С</td>
+											<td class="table-cell">$110</td>
+											<td class="table-cell">05.06.2025</td>
+											<td class="table-cell"><span class="status green status-indicator"></span>завершен</td>
+										</tr>
+										<tr class="table-row" id="request-row-5">
+											<td class="table-cell">Вероника. С</td>
+											<td class="table-cell">$150</td>
+											<td class="table-cell">05.06.2025</td>
+											<td class="table-cell"><span class="status green status-indicator"></span>завершен</td>
+										</tr>
+										<tr class="table-row" id="request-row-6">
+											<td class="table-cell">Кирилл. Д</td>
+											<td class="table-cell">$200</td>
+											<td class="table-cell">05.06.2025</td>
+											<td class="table-cell"><span class="status green status-indicator"></span>завершен</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="admins" id="admins-section">
+					<div class="card" id="admins-card">
+						<div class="card-header" id="admins-card-header">
+							<h3 class="card-title">Админы</h3>
+							<button class="card-button">Смотреть всех <i class="fas fa-arrow-right button-icon"></i></button>
+						</div>
+						<div class="card-body" id="admins-card-body">
+							<div class="admin" id="admin-1">
+								<div class="info admin-info">
+									<img src="../icons/user.png" width="40px" height="40px" alt="Admin Avatar" class="admin-avatar">
+									<div class="admin-details">
+										<h4 class="admin-name">x.x danil</h4>
+										<small class="admin-role">Frontend, Backend Developer, Database, Council, Tester, CEO</small>
+									</div>
+								</div>
+								<div class="contact admin-contact">
+									<i class="fas fa-user-circle contact-icon"></i>
+									<i class="fas fa-comment contact-icon"></i>
+									<i class="fas fa-phone-alt contact-icon"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<script src="../javascript/admin.js"></script>
+</body>
+</html>

@@ -1,8 +1,17 @@
-// Автоматическое разворачивание Telegram WebApp на весь экран
-if (window.Telegram && window.Telegram.WebApp) {
-    window.Telegram.WebApp.ready();
-    window.Telegram.WebApp.expand();
-}
+
+document.addEventListener('DOMContentLoaded', () => {
+	if (window.pageLoader) {
+		window.pageLoader.init();
+		window.pageLoader.startConvertProgress();
+		setTimeout(() => {
+			window.pageLoader.completeProgress();
+		}, 400);
+		
+		setTimeout(() => {
+			window.pageLoader.hide();
+		}, 800);
+	}
+});
 
 function convertUSDTtoRUB() {
 	const usdtInput = document.getElementById('usdt-input').value

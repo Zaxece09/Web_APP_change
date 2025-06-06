@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Обмен</title>
     <link rel="stylesheet" href="../css/trade.css">
+    <link rel="stylesheet" href="../css/loader.css">
 </head>
 <body>
+    <div id="pageLoader" class="page-loader">
+        <div class="loader-content">
+            <div class="loader-title">Загрузка формы обмена...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+            <div class="loader-text">Проверка профиля...</div>
+        </div>
+    </div>
     <h1 class="main-title">Создать обмен</h1>
     <div class="container">
         <form id="tradeForm" class="trade-form">
@@ -54,6 +64,23 @@
             <button type="submit" class="submit-btn">Создать обмен</button>
         </form>
     </div>
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <h2>Подтверждение обмена</h2>
+            <p class="warning-text" style="font-size: 14px; font-family: 'Geneva'; text-align: center;"><img src="../icons/warning.png" alt="Warning Icon" class="warning-icon">Перед оплатой убедитесь, что адрес USDT верный!</p>
+            <div class="usdt-address-container">
+                <p><strong><img src="../icons/usdt.png" alt="USDT Icon" class="usdt-icon"> Tether:</strong> <span id="modalUsdtAddress">1F5k2p8xJ9qW3vL4mN5rT6yU7xZ8cQ9wK</span></p>
+                <img src="../icons/copy.png" alt="Copy Address" id="copyAddressBtn" class="copy-icon" title="Скопировать адрес">
+            </div>
+            <p><strong>Сумма к оплате:</strong> <span id="modalAmount">0.00</span></p>
+            <div class="form-group">
+                <label class="form-label-above">Введите хеш транзакции:</label>
+                <input type="text" id="transactionHash" placeholder="Введите хеш транзакции" style="width: 100%; padding: 12px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 0.95rem;">
+                <small style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem; margin-top: 5px; display: block;">Введите хеш вашей транзакции USDT</small>
+            </div>
+            <button id="modalCloseBtn" class="close-btn">Завершить</button>
+        </div>
+    </div>
     <div class="button-group">
         <button class="btn create-btn active" onclick="navigateWithUserId('trade.html')">
             <img src="../icons/trade-white.png" alt="Trade Icon" class="btn-icon">Создать обмен
@@ -65,6 +92,7 @@
             <img src="../icons/profile-white.png" alt="Profile Icon" class="btn-icon">Профиль
         </button>
     </div>
+    <script src="../javascript/loader.js"></script>
     <script src="../javascript/trade.js"></script>
 </body>
 </html>

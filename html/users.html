@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Пользователи</title>
+	<link rel="stylesheet" href="../css/users.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body id="admin-body" class="admin-body">
+	<input type="checkbox" id="nav-toggle" class="nav-toggle">
+	<div class="sidebar" id="sidebar">
+		<div class="sidebar-header" id="sidebar-header">
+			<h3 class="sidebar-title">Админ-панель</h3>
+		</div>
+		<ul class="sidebar-menu" id="sidebar-menu">
+			<li class="sidebar-item" id="sidebar-item-overview"><a href="admin.html" class="sidebar-link"><i class="fas fa-tachometer-alt sidebar-icon"></i> Обзор</a></li>
+			<li class="sidebar-item active" id="sidebar-item-users"><a href="users.html" class="sidebar-link"><i class="fas fa-users sidebar-icon"></i> Пользователи</a></li>
+			<li class="sidebar-item" id="sidebar-item-requests"><a href="orders.html" class="sidebar-link"><i class="fas fa-file-invoice-dollar sidebar-icon"></i> Заказы</a></li>
+			<li class="sidebar-item" id="sidebar-item-settings"><a href="settings.html" class="sidebar-link"><i class="fas fa-cogs sidebar-icon"></i> Настройки</a></li>
+		</ul>
+	</div>
+	<div class="main-content" id="main-content">
+		<header id="main-header" class="main-header">
+			<h2 class="header-title">
+				<label for="nav-toggle" class="nav-toggle-label">
+					<i class="fas fa-bars header-icon"></i>
+				</label>
+				Пользователи
+			</h2>
+			<div class="user-wrapper" id="user-wrapper">
+				<img src="../icons/user.png" width="40px" height="40px" alt="User Avatar" class="user-avatar">
+				<div class="user-info">
+					<h4 class="user-name">Имя Админа</h4>
+					<small class="user-role">Супер админ</small>
+				</div>
+			</div>
+		</header>
+		<main id="main-section" class="main-section">
+			<div class="users-management" id="users-management">
+				<div class="card" id="users-card">
+					<div class="card-header" id="users-card-header">
+						<h3 class="card-title">Все пользователи</h3>
+						<div class="actions" id="users-actions">
+							<input type="text" placeholder="Поиск пользователя..." class="search-input" id="user-search-input">
+							<button class="card-button" id="add-user-button">Добавить пользователя <i class="fas fa-plus button-icon"></i></button>
+						</div>
+					</div>
+					<div class="card-body" id="users-card-body">
+						<div class="table-responsive" id="users-table-responsive">
+							<table id="users-table">
+								<thead class="table-head">
+									<tr class="table-header-row">
+										<td class="table-header">Пользователь</td>
+										<td class="table-header">Email</td>
+										<td class="table-header">Роль</td>
+										<td class="table-header">Дата регистрации</td>
+										<td class="table-header">Статус</td>
+										<td class="table-header">Действия</td>
+									</tr>
+								</thead>
+								<tbody class="table-body">
+									<tr class="table-row" id="user-row-1">
+										<td data-label="Пользователь" class="table-cell user-cell">
+											<div class="user-info-cell">
+												<img src="../icons/user.png" width="40px" height="40px" alt="User Avatar" class="user-avatar-table">
+												<span class="user-name-table">User One</span>
+											</div>
+										</td>
+										<td data-label="Email" class="table-cell email-cell">user.one@example.com</td>
+										<td data-label="Роль" class="table-cell">Пользователь</td>
+										<td data-label="Дата регистрации" class="table-cell">15-07-2024</td>
+										<td data-label="Статус" class="table-cell"><span class="status green status-indicator"></span>Активен</td>
+										<td data-label="Действия" class="table-cell">
+											<div class="action-buttons" id="action-buttons-1">
+												<button class="action-btn edit-btn" id="edit-user-1"><i class="fas fa-edit action-icon"></i></button>
+												<button class="action-btn delete-btn" id="delete-user-1"><i class="fas fa-trash action-icon"></i></button>
+											</div>
+										</td>
+									</tr>
+									<tr class="table-row" id="user-row-2">
+										<td data-label="Пользователь" class="table-cell user-cell">
+											<div class="user-info-cell">
+												<img src="../icons/user.png" width="40px" height="40px" alt="User Avatar" class="user-avatar-table">
+												<span class="user-name-table">User Two</span>
+											</div>
+										</td>
+										<td data-label="Email" class="table-cell email-cell">user.two@example.com</td>
+										<td data-label="Роль" class="table-cell">Пользователь</td>
+										<td data-label="Дата регистрации" class="table-cell">14-07-2024</td>
+										<td data-label="Статус" class="table-cell"><span class="status orange status-indicator"></span>Заблокирован</td>
+										<td data-label="Действия" class="table-cell">
+											<div class="action-buttons" id="action-buttons-2">
+												<button class="action-btn edit-btn" id="edit-user-2"><i class="fas fa-edit action-icon"></i></button>
+												<button class="action-btn delete-btn" id="delete-user-2"><i class="fas fa-trash action-icon"></i></button>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<script src="../javascript/users.js"></script>
+</body>
+</html>

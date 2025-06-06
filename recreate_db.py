@@ -4,59 +4,74 @@
 ВНИМАНИЕ: Это удалит все существующие данные!
 """
 
-from sqlalchemy import create_engine, text
+import os
+import psycopg2
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 from config import config
-from models import Base
-import sys
+from models import Base, UserProfile, Trade
+from database import engine, get_db
 
-def recreate_tables():
-    """Пересоздание таблиц с новой структурой"""
-    DATABASE_URL = f"postgresql+psycopg2://{config.db.user}:{config.db.password}@{config.db.host}:{config.db.port}/{config.db.database}"
+def recreate_database():
+    """Пересоздание базы данных с нуля"""
+    
+    conn = psycopg2.connect(
+        host=config.db.host,
+        port=config.db.port,
+        user=config.db.user,
+        password=config.db.password,
+        database='postgres' 
+    )
+    conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+    cursor = conn.cursor()
     
     try:
-        engine = create_engine(DATABASE_URL, echo=True)
+        print(f"🗑️  Удаление базы данных '{config.db.database}' если она существует...")
+        cursor.execute(f'DROP DATABASE IF EXISTS "{config.db.database}"')
         
-        print("🔄 Подключение к базе данных...")
-        with engine.connect() as connection:
-            print("✅ Успешное подключение к PostgreSQL!")
-            
-            print("🗑️  Удаление существующей таблицы user_profiles...")
-            connection.execute(text("DROP TABLE IF EXISTS user_profiles CASCADE;"))
-            connection.commit()
-            print("✅ Таблица user_profiles удалена")
-
-        print("🏗️  Создание новых таблиц...")
-        Base.metadata.create_all(engine)
-        print("✅ Таблицы успешно созданы с новой структурой!")
-
-        print("🔍 Проверка структуры таблицы...")
-        with engine.connect() as connection:
-            result = connection.execute(text("""
-                SELECT column_name, data_type, is_nullable 
-                FROM information_schema.columns 
-                WHERE table_name = 'user_profiles' 
-                ORDER BY ordinal_position;
-            """))
-            
-            print("\n📋 Структура таблицы user_profiles:")
-            for row in result:
-                nullable = "NULL" if row.is_nullable == "YES" else "NOT NULL"
-                print(f"   {row.column_name}: {row.data_type} {nullable}")
+        print(f"🆕 Создание новой базы данных '{config.db.database}'...")
+        cursor.execute(f'CREATE DATABASE "{config.db.database}"')
         
-        print("\n🎉 Пересоздание таблиц завершено успешно!")
+        print("✅ База данных успешно пересоздана!")
+        
+    except Exception as e:
+        print(f"❌ Ошибка при пересоздании базы данных: {e}")
+        return False
+    finally:
+        cursor.close()
+        conn.close()
+    
+    return True
+
+def create_tables():
+    """Создание всех таблиц"""
+    try:
+        print("📋 Создание таблиц...")
+        
+        Base.metadata.create_all(bind=engine)
+        
+        print("✅ Таблицы успешно созданы!")
+        print("   - user_profiles (профили пользователей)")
+        print("   - trades (обмены)")
+        
         return True
         
     except Exception as e:
-        print(f"❌ Ошибка при пересоздании таблиц: {e}")
+        print(f"❌ Ошибка при создании таблиц: {e}")
         return False
 
 if __name__ == "__main__":
-    print("🚀 Запуск пересоздания таблиц...")
-    success = recreate_tables()
+    print("🚀 Начинаем пересоздание базы данных...")
+    print(f"📊 База данных: {config.db.database}")
+    print(f"🖥️  Хост: {config.db.host}:{config.db.port}")
+    print(f"👤 Пользователь: {config.db.user}")
+    print("-" * 50)
     
-    if success:
-        print("\n✅ Все готово! Теперь можно запускать приложение.")
-        sys.exit(0)
+    if recreate_database():
+        if create_tables():
+            print("-" * 50)
+            print("🎉 Пересоздание базы данных завершено успешно!")
+            print("💡 Теперь можно запускать приложение командой: python app.py")
+        else:
+            print("❌ Не удалось создать таблицы")
     else:
-        print("\n❌ Произошла ошибка при пересоздании таблиц.")
-        sys.exit(1) 
+        print("❌ Не удалось пересоздать базу данных") 

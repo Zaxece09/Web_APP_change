@@ -1,10 +1,9 @@
-// Автоматическое разворачивание Telegram WebApp на весь экран
-if (window.Telegram && window.Telegram.WebApp) {
-	window.Telegram.WebApp.ready();
-	window.Telegram.WebApp.expand();
-}
-
 document.addEventListener('DOMContentLoaded', () => {
+	if (window.pageLoader) {
+		window.pageLoader.init();
+		window.pageLoader.startProfileProgress();
+	}
+
 	const profileForm = document.getElementById('profileForm')
 	const nameInput = document.getElementById('name')
 	const phoneInput = document.getElementById('phone')
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		console.error('❌ Profile form not found!');
 		return;
 	}
-
 
 	if (passportBtn) {
 		passportBtn.style.display = 'none'
@@ -207,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		editingField = null;
 	}
 
-	function showEditMode() {	
+	function showEditMode() {
 		document.querySelectorAll('.field-display').forEach(display => {
 			display.style.display = 'none';
 		});
@@ -316,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		} else {
 			input.value = '';
 		}
-
+		
 		input.style.display = 'none';
 		display.style.display = 'flex';
 		
@@ -351,7 +349,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	window.editField = editField;
 
-	loadProfile();
+	loadProfile().then(() => {
+		if (window.pageLoader) {
+			window.pageLoader.completeProgress();
+		}
+	}).finally(() => {
+		if (window.pageLoader) {
+			setTimeout(() => {
+				window.pageLoader.hide();
+			}, 600);
+		}
+	});
 
 	async function loadProfile() {
 		try {

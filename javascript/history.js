@@ -1,230 +1,234 @@
-// Автоматическое разворачивание Telegram WebApp на весь экран
-if (window.Telegram && window.Telegram.WebApp) {
-    window.Telegram.WebApp.ready();
-    window.Telegram.WebApp.expand();
+let userid = null
+
+const urlParams = new URLSearchParams(window.location.search)
+userid = urlParams.get('userid')
+
+if (!userid) {
+	alert('Ошибка: не найден ID пользователя')
+	window.location.href = '../index.html'
 }
 
-const tradeHistory = [
-	{
-		id: 'XXXXXX1',
-		date: '04.06.2025 14:30',
-		usdt: '100',
-		rub: '9500',
-		name: 'Иван Иванов',
-		email: 'ivan@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX2',
-		date: '05.06.2025 15:45',
-		usdt: '200',
-		rub: '19000',
-		name: 'Анна Петрова',
-		email: 'anna@example.com',
-		status: 'Ожидание',
-	},
-	{
-		id: 'XXXXXX3',
-		date: '06.06.2025 09:20',
-		usdt: '150',
-		rub: '14250',
-		name: 'Сергей Сидоров',
-		email: 'sergey@example.com',
-		status: 'Отмена',
-	},
-	{
-		id: 'XXXXXX4',
-		date: '07.06.2025 12:00',
-		usdt: '300',
-		rub: '28500',
-		name: 'Мария Кузнецова',
-		email: 'maria@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX5',
-		date: '08.06.2025 16:10',
-		usdt: '250',
-		rub: '23750',
-		name: 'Дмитрий Попов',
-		email: 'dmitry@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX6',
-		date: '09.06.2025 11:30',
-		usdt: '400',
-		rub: '38000',
-		name: 'Елена Смирнова',
-		email: 'elena@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX7',
-		date: '04.06.2025 10:15',
-		usdt: '120',
-		rub: '11400',
-		name: 'Алексей Морозов',
-		email: 'alexey@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX8',
-		date: '04.06.2025 13:25',
-		usdt: '180',
-		rub: '17100',
-		name: 'Ольга Васильева',
-		email: 'olga@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX9',
-		date: '04.06.2025 17:50',
-		usdt: '90',
-		rub: '8550',
-		name: 'Павел Козлов',
-		email: 'pavel@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX10',
-		date: '04.06.2025 08:40',
-		usdt: '500',
-		rub: '47500',
-		name: 'Наталья Романова',
-		email: 'natalia@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX11',
-		date: '04.06.2025 19:00',
-		usdt: '220',
-		rub: '20900',
-		name: 'Виктор Лебедев',
-		email: 'victor@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX12',
-		date: '04.06.2025 12:30',
-		usdt: '300',
-		rub: '28500',
-		name: 'Татьяна Белова',
-		email: 'tatyana@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX13',
-		date: '04.06.2025 15:15',
-		usdt: '270',
-		rub: '25650',
-		name: 'Роман Зайцев',
-		email: 'roman@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX14',
-		date: '04.06.2025 09:10',
-		usdt: '350',
-		rub: '33250',
-		name: 'Светлана Фролова',
-		email: 'svetlana@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX15',
-		date: '04.06.2025 14:20',
-		usdt: '400',
-		rub: '38000',
-		name: 'Михаил Громов',
-		email: 'mikhail@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX16',
-		date: '04.06.2025 16:45',
-		usdt: '130',
-		rub: '12350',
-		name: 'Екатерина Орлова',
-		email: 'ekaterina@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX17',
-		date: '04.06.2025 11:55',
-		usdt: '200',
-		rub: '19000',
-		name: 'Артем Соколов',
-		email: 'artem@example.com',
-		status: 'Успех',
-	},
-	{
-		id: 'XXXXXX18',
-		date: '04.06.2025 18:30',
-		usdt: '280',
-		rub: '26600',
-		name: 'Юлия Новикова',
-		email: 'yulia@example.com',
-		status: 'Успех',
-	},
-]
+function navigateWithUserId(url) {
+	const urlParams = new URLSearchParams(window.location.search)
+	const userid = urlParams.get('userid')
 
-document.addEventListener('DOMContentLoaded', () => {
-	function navigateWithUserId(url) {
-		const urlParams = new URLSearchParams(window.location.search);
-		const userid = urlParams.get('userid');
-
-		if (userid) {
-			const separator = url.includes('?') ? '&' : '?';
-			url += separator + 'userid=' + userid;
-		}
-		
-		window.location.href = url;
+	if (userid) {
+		const separator = url.includes('?') ? '&' : '?'
+		url += separator + 'userid=' + userid
 	}
 
-	window.navigateWithUserId = navigateWithUserId;
+	window.location.href = url
+}
 
-	const historyList = document.getElementById('tradeHistoryBody')
-	const modal = document.getElementById('tradeModal')
-	const closeBtn = document.querySelector('.close-btn')
+window.navigateWithUserId = navigateWithUserId
 
-	tradeHistory.forEach((trade, index) => {
-		const historyItem = document.createElement('div')
-		historyItem.classList.add('history-item')
-		historyItem.dataset.index = index
-		historyItem.innerHTML = `
-            <span>ID: ${trade.id}</span>
-            <span>${trade.date.split(' ')[0]}</span>
-            <span>Статус: ${trade.status}</span>
-        `
-		historyList.appendChild(historyItem)
-	})
+async function loadTradeHistory() {
+	try {
+		const response = await fetch(`/api/trades?userid=${userid}`)
+		const result = await response.json()
 
-	const historyItems = document.querySelectorAll('.history-item')
-	historyItems.forEach(item => {
-		item.addEventListener('click', () => {
-			const index = item.dataset.index
-			const trade = tradeHistory[index]
-
-			document.getElementById('modal-id').textContent = trade.id
-			document.getElementById('modal-date').textContent = trade.date
-			document.getElementById('modal-usdt').textContent = trade.usdt
-			document.getElementById('modal-rub').textContent = trade.rub
-			document.getElementById('modal-name').textContent = trade.name
-			document.getElementById('modal-email').textContent = trade.email
-			document.getElementById('modal-status').textContent = trade.status
-
-			modal.style.display = 'flex'
-		})
-	})
-
-	closeBtn.addEventListener('click', () => {
-		modal.style.display = 'none'
-	})
-
-	modal.addEventListener('click', e => {
-		if (e.target === modal) {
-			modal.style.display = 'none'
+		if (result.success) {
+			displayTradeHistory(result.data)
+		} else {
+			console.error('Ошибка загрузки истории:', result.error)
+			displayEmptyHistory()
 		}
+	} catch (error) {
+		console.error('Ошибка при загрузке истории обменов:', error)
+		displayEmptyHistory()
+	}
+}
+
+function displayTradeHistory(trades) {
+	const historyContainer = document.querySelector('.history-container')
+	
+	if (!trades || trades.length === 0) {
+		displayEmptyHistory()
+		return
+	}
+
+	let historyHTML = '<h2 class="section-title">История ваших обменов</h2>'
+	
+	trades.forEach(trade => {
+		const statusClass = getStatusClass(trade.status)
+		const statusIcon = getStatusIcon(trade.status)
+		
+		const tradeDate = formatTradeDate(trade.created_at)
+		
+		historyHTML += `
+			<div class="trade-item" onclick="showTradeDetails('${trade.trade_id}')">
+				<div class="trade-info">
+					<h3 class="trade-id">ID: ${trade.trade_id}</h3>
+					<p class="trade-date">${tradeDate}</p>
+					<p class="trade-amount">${trade.amount_usdt} <img src="../icons/usdt.png" alt="USDT" class="currency-icon"> ➜ ${trade.amount_rub.toFixed(0)} <img src="../icons/rub.png" alt="RUB" class="currency-icon"></p>
+					<p class="trade-time">${trade.trade_date} ${trade.trade_time}</p>
+				</div>
+				<div class="trade-status ${statusClass}">
+					${statusIcon} ${trade.status}
+				</div>
+			</div>
+		`
 	})
+	
+	historyContainer.innerHTML = historyHTML
+}
+
+function displayEmptyHistory() {
+	const historyContainer = document.querySelector('.history-container')
+	historyContainer.innerHTML = `
+		<h2 class="section-title">История ваших обменов</h2>
+		<div class="empty-history">
+			<p>У вас пока нет обменов</p>
+			<button onclick="navigateWithUserId('trade.html')" class="empty-btn">Создать первый обмен</button>
+		</div>
+	`
+}
+
+function getStatusClass(status) {
+	switch (status) {
+		case 'Успех': return 'status-success'
+		case 'Ожидание': return 'status-pending'
+		case 'Отмена': return 'status-cancelled'
+		default: return 'status-pending'
+	}
+}
+
+function getStatusIcon(status) {
+	switch (status) {
+		case 'Успех': return '<img src="../icons/success.png" alt="Успех" class="status-icon">'
+		case 'Ожидание': return '<img src="../icons/waiting.png" alt="Ожидание" class="status-icon">'
+		case 'Отмена': return '<img src="../icons/cancel.png" alt="Отмена" class="status-icon">'
+		default: return '<img src="../icons/waiting.png" alt="Ожидание" class="status-icon">'
+	}
+}
+
+function formatTradeDate(dateString) {
+	const date = new Date(dateString)
+	const day = date.getDate().toString().padStart(2, '0')
+	const month = (date.getMonth() + 1).toString().padStart(2, '0')
+	const year = date.getFullYear()
+	const hours = date.getHours().toString().padStart(2, '0')
+	const minutes = date.getMinutes().toString().padStart(2, '0')
+	
+	return `${day}.${month}.${year} ${hours}:${minutes}`
+}
+
+async function showTradeDetails(tradeId) {
+	try {
+		const response = await fetch(`/api/trade/${tradeId}`)
+		const result = await response.json()
+
+		if (result.success) {
+			displayTradeModal(result.data)
+		} else {
+			alert('Ошибка загрузки деталей обмена')
+		}
+	} catch (error) {
+		console.error('Ошибка при загрузке деталей обмена:', error)
+		alert('Произошла ошибка при загрузке деталей')
+	}
+}
+
+function displayTradeModal(trade) {
+	let modal = document.getElementById('tradeDetailsModal')
+	if (!modal) {
+		modal = document.createElement('div')
+		modal.id = 'tradeDetailsModal'
+		modal.className = 'modal-overlay'
+		document.body.appendChild(modal)
+	}
+
+	const statusClass = getStatusClass(trade.status)
+	const statusIcon = getStatusIcon(trade.status)
+	const createdDate = formatTradeDate(trade.created_at)
+
+	modal.innerHTML = `
+		<div class="modal-content trade-details-modal">
+			<div class="modal-header">
+				<h2>Детали обмена</h2>
+				<span class="modal-close" onclick="closeTradeModal()">&times;</span>
+			</div>
+			<div class="modal-body">
+				<div class="detail-row">
+					<span class="detail-label">ID:</span>
+					<span class="detail-value">${trade.trade_id}</span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">Дата и время проведения обмена:</span>
+					<span class="detail-value">${trade.trade_date} ${trade.trade_time}</span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">USDT:</span>
+					<span class="detail-value">${trade.amount_usdt} <img src="../icons/usdt.png" alt="USDT" class="currency-icon"></span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">RUB:</span>
+					<span class="detail-value">${trade.amount_rub.toFixed(0)} <img src="../icons/rub.png" alt="RUB" class="currency-icon"></span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">Имя:</span>
+					<span class="detail-value">${trade.user_name || 'Не указано'}</span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">E-mail:</span>
+					<span class="detail-value">${trade.user_email || 'Не указано'}</span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">Адрес проведения сделки:</span>
+					<span class="detail-value">${trade.user_address || 'Не указан'}</span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">Статус:</span>
+					<span class="detail-value status ${statusClass}">${statusIcon} ${trade.status}</span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">Создан:</span>
+					<span class="detail-value">${createdDate}</span>
+				</div>
+				${trade.transaction_hash ? `
+				<div class="detail-row">
+					<span class="detail-label">Хеш транзакции:</span>
+					<span class="detail-value" style="word-break: break-all; font-family: monospace; font-size: 0.8rem;">${trade.transaction_hash}</span>
+				</div>
+				` : ''}
+			</div>
+		</div>
+	`
+
+	modal.style.display = 'flex'
+	
+	modal.onclick = (e) => {
+		if (e.target === modal) {
+			closeTradeModal()
+		}
+	}
+}
+
+function closeTradeModal() {
+	const modal = document.getElementById('tradeDetailsModal')
+	if (modal) {
+		modal.style.display = 'none'
+	}
+}
+
+window.showTradeDetails = showTradeDetails
+window.closeTradeModal = closeTradeModal
+
+document.addEventListener('DOMContentLoaded', () => {
+	if (window.pageLoader) {
+		window.pageLoader.init();
+		window.pageLoader.startHistoryProgress();
+	}
+
+	loadTradeHistory().then(() => {
+		if (window.pageLoader) {
+			window.pageLoader.completeProgress();
+		}
+	}).finally(() => {
+		if (window.pageLoader) {
+			setTimeout(() => {
+				window.pageLoader.hide();
+			}, 600);
+		}
+	});
 })

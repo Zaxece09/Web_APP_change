@@ -193,6 +193,27 @@ body {
     cursor: pointer;
 }
 
+.time-slot input[type="radio"]:checked + label::before {
+    background: #918168;
+    border-color: #918168;
+}
+
+.time-slot.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgba(200, 200, 200, 0.3);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.time-slot.disabled input[type="radio"] {
+    cursor: not-allowed;
+}
+
+.time-slot.disabled:hover {
+    background: rgba(200, 200, 200, 0.3);
+    transform: none;
+}
+
 .submit-btn {
     background: #918168;
     color: #ffffff;
@@ -267,6 +288,193 @@ body {
     height: 68px;
 }
 
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active {
+    display: flex; 
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    max-width: 450px;
+    text-align: left;
+    color: #ffffff;
+}
+
+.modal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.modal-content p {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.modal-content p strong {
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.modal-content .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-content .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.usdt-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 3px;
+    margin-right: 5px; 
+}
+
+.usdt-address-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    margin-bottom: 12px; 
+}
+
+.usdt-address-container p {
+    margin-bottom: 0; 
+    flex-grow: 1; 
+    word-break: break-all;
+}
+
+.copy-icon {
+    width: 20px; 
+    height: 20px; 
+    cursor: pointer;
+    margin-left: 10px; 
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.7;
+}
+
+.copy-icon:hover {
+    transform: scale(1.15);
+    opacity: 1;
+}
+
+.copy-icon:active {
+    transform: scale(0.95);
+}
+
+.warning-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    position: relative;
+    top: 5px;
+}
+
+.receipt-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.receipt-input::file-selector-button {
+    background-color: #918168;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.receipt-input::file-selector-button:hover {
+    background-color: #a8997c;
+}
+
+.modal-content .form-label-above {
+    display: block; 
+    margin-bottom: 8px; 
+    font-size: 0.9rem; 
+    color: #ffffff; 
+    font-weight: 500; 
+}
+
+.custom-file-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #8B7D6B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.custom-file-button:hover {
+    background-color: #A8997C; 
+}
+
+.custom-file-button-icon {
+    width: 18px; 
+    height: 18px;
+    margin-right: 10px; 
+}
+
+.selected-file-info {
+    display: block; 
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #e0e0e0; 
+}
+
+.modal-content .close-btn {
+    background: #918168;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.modal-content .close-btn:hover {
+    background: #a8997c;
+    transform: translateY(-2px);
+}
+
 @media (max-width: 480px) {
     .main-title {
         font-size: 1.5rem;
@@ -324,4 +532,89 @@ body {
         width: 20px;
         height: 20px;
     }
+
+    .pending-trade-warning {
+        background: linear-gradient(45deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+        border: 2px solid rgba(255, 193, 7, 0.3);
+        box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+    }
+
+    .warning-text h3 {
+        font-size: 1.1rem;
+    }
+
+    .warning-text p {
+        font-size: 0.9rem;
+    }
+
+    .view-trade-btn {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+}
+
+.pending-trade-warning {
+    background: linear-gradient(45deg, rgba(255, 193, 7, 0.5), rgba(255, 152, 0, 0.5));
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+    border: 2px solid rgba(255, 193, 7, 0.5);
+    text-align: center;
+}
+
+.warning-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.warning-content .warning-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.warning-text {
+    color: #ffffff;
+    text-align: center;
+}
+
+.warning-text h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.warning-text p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.view-trade-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.view-trade-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-1px);
 }

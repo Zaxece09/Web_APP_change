@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Настройки</title>
+	<link rel="stylesheet" href="../css/settings.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body id="admin-body" class="admin-body">
+	<input type="checkbox" id="nav-toggle" class="nav-toggle">
+	<div class="sidebar" id="sidebar">
+		<div class="sidebar-header" id="sidebar-header">
+			<h3 class="sidebar-title">Админ-панель</h3>
+		</div>
+		<ul class="sidebar-menu" id="sidebar-menu">
+			<li class="sidebar-item" id="sidebar-item-overview"><a href="admin.html" class="sidebar-link"><i class="fas fa-tachometer-alt sidebar-icon"></i> Обзор</a></li>
+			<li class="sidebar-item" id="sidebar-item-users"><a href="users.html" class="sidebar-link"><i class="fas fa-users sidebar-icon"></i> Пользователи</a></li>
+			<li class="sidebar-item" id="sidebar-item-requests"><a href="orders.html" class="sidebar-link"><i class="fas fa-file-invoice-dollar sidebar-icon"></i> Заказы</a></li>
+			<li class="sidebar-item active" id="sidebar-item-settings"><a href="settings.html" class="sidebar-link"><i class="fas fa-cogs sidebar-icon"></i> Настройки</a></li>
+		</ul>
+	</div>
+	<div class="main-content" id="main-content">
+		<header id="main-header" class="main-header">
+			<h2 class="header-title">
+				<label for="nav-toggle" class="nav-toggle-label">
+					<i class="fas fa-bars header-icon"></i>
+				</label>
+				Настройки
+			</h2>
+			<div class="user-wrapper" id="user-wrapper">
+				<img src="../icons/user.png" width="40px" height="40px" alt="User Avatar" class="user-avatar">
+				<div class="user-info">
+					<h4 class="user-name">Имя Админа</h4>
+					<small class="user-role">Супер админ</small>
+				</div>
+			</div>
+		</header>
+		<main id="main-section" class="main-section">
+			<div class="settings-grid" id="settings-grid">
+				<div class="card" id="general-settings-card">
+					<div class="card-header" id="general-settings-header">
+						<h3 class="card-title">Основные настройки</h3>
+					</div>
+					<div class="card-body" id="general-settings-body">
+						<form class="settings-form" id="general-settings-form">
+							<div class="form-group" id="site-name-group">
+								<label for="site-name" class="form-label">Название сайта</label>
+								<input type="text" id="site-name" class="form-input" value="Denchik WebApp">
+							</div>
+							<div class="form-group" id="admin-email-group">
+								<label for="admin-email" class="form-label">Email администратора</label>
+								<input type="email" id="admin-email" class="form-input" value="admin@example.com">
+							</div>
+							<div class="form-group" id="usdt-rub-group">
+								<label for="usdt-rub-rate" class="form-label">Курс USDT к RUB</label>
+								<input type="number" id="usdt-rub-rate" class="form-input" value="95.50" step="0.01" min="0">
+							</div>
+							<button type="submit" class="card-button save-btn" id="save-general-settings">Сохранить <i class="fas fa-save button-icon"></i></button>
+						</form>
+					</div>
+				</div>
+				<div class="card" id="security-settings-card">
+					<div class="card-header" id="security-settings-header">
+						<h3 class="card-title">Настройки безопасности</h3>
+					</div>
+					<div class="card-body" id="security-settings-body">
+						<form class="settings-form" id="security-settings-form">
+							<div class="form-group" id="password-group">
+								<label for="change-password" class="form-label">Новый пароль</label>
+								<input type="password" id="change-password" class="form-input" placeholder="Введите новый пароль">
+							</div>
+							<div class="form-group" id="two-factor-group">
+								<label for="two-factor" class="form-label">Двухфакторная аутентификация</label>
+								<label class="switch">
+									<input type="checkbox" id="two-factor" checked>
+									<span class="slider round"></span>
+								</label>
+							</div>
+							<button type="submit" class="card-button update-btn" id="update-security-settings">Обновить <i class="fas fa-sync button-icon"></i></button>
+						</form>
+					</div>
+				</div>
+				<div class="card" id="datetime-settings-card">
+					<div class="card-header" id="datetime-settings-header">
+						<h3 class="card-title">Дата и время</h3>
+					</div>
+					<div class="card-body" id="datetime-settings-body">
+						<form class="settings-form" id="datetime-settings-form">
+							<div class="form-group" id="date-picker-group">
+								<label for="selected-date" class="form-label">Выберите дату</label>
+								<div class="date-picker" id="date-picker">
+									<button type="button" class="nav-btn prev-date" id="prev-date"><img src="../icons/left.png" alt="Previous" class="nav-icon"></button>
+									<input type="text" id="selected-date" class="form-input date-input" value="06-06-2025" readonly>
+									<button type="button" class="nav-btn next-date" id="next-date"><img src="../icons/right.png" alt="Next" class="nav-icon"></button>
+								</div>
+							</div>
+							<div class="form-group" id="time-slots-group">
+								<label class="form-label">Временные слоты</label>
+								<div class="time-slots" id="time-slots"></div>
+								<button type="button" class="card-button add-time-btn" id="add-time-btn">Добавить время <i class="fas fa-plus button-icon"></i></button>
+							</div>
+							<button type="submit" class="card-button save-btn" id="save-datetime-settings">Сохранить <i class="fas fa-save button-icon"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal" id="time-modal">
+				<div class="modal-content" id="time-modal-content">
+					<span class="modal-close" id="time-modal-close">&times;</span>
+					<h3 class="modal-title" id="time-modal-title">Добавить временные слоты</h3>
+					<div class="modal-body" id="time-modal-body">
+						<div class="modal-date" id="modal-date-display">Дата: 06-06-2025</div>
+						<div class="time-ranges" id="time-ranges">
+							<div class="time-range" id="time-range-1">
+								<div class="time-input-group">
+									<input type="time" class="form-input time-start" id="time-start-1" value="09:00">
+									<span class="time-separator">-</span>
+									<input type="time" class="form-input time-end" id="time-end-1" value="10:00">
+								</div>
+							</div>
+						</div>
+						<button type="button" class="card-button add-time-range-btn" id="add-time-range-btn" disabled>Добавить еще время <i class="fas fa-plus button-icon"></i></button>
+					</div>
+					<div class="modal-footer" id="time-modal-footer">
+						<button type="button" class="card-button save-time-btn" id="save-time-btn">Сохранить <i class="fas fa-save button-icon"></i></button>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<script src="../javascript/settings.js"></script>
+</body>
+</html>
