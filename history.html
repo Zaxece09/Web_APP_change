@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>История обменов - Crypto Exchange</title>
+    <link rel="stylesheet" href="../css/history.css">
+    <link rel="stylesheet" href="../css/loader.css">
+</head>
+<body>
+    <div id="pageLoader" class="page-loader">
+        <div class="loader-content">
+            <div class="loader-title">Загрузка истории...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+            <div class="loader-text">Получение списка обменов...</div>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="main-title">История ваших обменов</h1>
+        <div class="history-container">
+        </div>
+    </div>
+    
+    <div class="button-group">
+        <button class="btn create-btn" onclick="navigateWithUserId('trade.html')">
+            <img src="../icons/trade-white.png" alt="Trade Icon" class="btn-icon">Создать обмен
+        </button>
+        <button class="btn history-btn active" onclick="navigateWithUserId('history.html')">
+            <img src="../icons/history-white.png" alt="History Icon" class="btn-icon">История обменов
+        </button>
+        <button class="btn profile-btn" onclick="navigateWithUserId('profile.html')">
+            <img src="../icons/profile-white.png" alt="Profile Icon" class="btn-icon">Профиль
+        </button>
+    </div>
+    
+    <script src="../javascript/loader.js"></script>
+    <script src="../javascript/history.js"></script>
+</body>
+</html>
