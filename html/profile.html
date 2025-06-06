@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="../css/profile.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Профиль</h1>
+        <form id="profileForm" class="profile-form">
+            <div class="form-group">
+                <label>Имя *</label>
+                <div class="field-container">
+                    <div class="field-display" id="nameDisplay">Не указано</div>
+                    <input type="text" id="name" name="name" required placeholder="Введите ваше имя" style="display: none;">
+                    <button type="button" class="edit-btn" onclick="editField('name')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Номер телефона *</label>
+                <div class="field-container">
+                    <div class="field-display" id="phoneDisplay">Не указано</div>
+                    <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX" inputmode="numeric" maxlength="18" style="display: none;">
+                    <button type="button" class="edit-btn" onclick="editField('phone')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Номер телефона (доп.)</label>
+                <div class="field-container">
+                    <div class="field-display" id="phoneAdditionalDisplay">Не указано</div>
+                    <input type="tel" id="phoneAdditional" name="phoneAdditional" placeholder="+7 (XXX) XXX-XX-XX" inputmode="numeric" maxlength="18" style="display: none;">
+                    <button type="button" class="edit-btn" onclick="editField('phoneAdditional')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>E-mail *</label>
+                <div class="field-container">
+                    <div class="field-display" id="emailDisplay">Не указано</div>
+                    <input type="email" id="email" name="email" required placeholder="example@email.com" style="display: none;">
+                    <button type="button" class="edit-btn" onclick="editField('email')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Адрес *</label>
+                <div class="field-container">
+                    <div class="field-display" id="addressDisplay">Не указано</div>
+                    <input type="text" id="address" name="address" required placeholder="Пример: Москва, ул. Ленина, 1" style="display: none;">
+                    <button type="button" class="edit-btn" onclick="editField('address')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <button type="button" class="passport-btn" onclick="navigateWithUserId('passportcontrol.html')">
+                <img src="../icons/passport.png" alt="Passport Icon" class="passport-icon">Паспорт
+            </button>
+            <button type="submit" class="save-profile-btn" id="saveBtn">Сохранить профиль</button>
+        </form>
+    </div>
+        <div class="button-group">
+        <button class="btn create-btn" onclick="navigateWithUserId('trade.html')">
+            <img src="../icons/trade-white.png" alt="Trade Icon" class="btn-icon">Создать обмен
+        </button>
+        <button class="btn history-btn" onclick="navigateWithUserId('history.html')">
+            <img src="../icons/history-white.png" alt="History Icon" class="btn-icon">История обменов
+        </button>
+        <button class="btn profile-btn active" onclick="navigateWithUserId('profile.html')">
+            <img src="../icons/profile-white.png" alt="Profile Icon" class="btn-icon">Профиль
+        </button>
+    </div>
+    <script>
+        function navigateWithUserId(url) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userid = urlParams.get('userid');
+            
+            if (userid) {
+                const separator = url.includes('?') ? '&' : '?';
+                url += separator + 'userid=' + userid;
+            }
+            
+            window.location.href = url;
+        }
+    </script>
+    <script src="../javascript/profile.js"></script>
+</body>
+</html>

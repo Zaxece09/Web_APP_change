@@ -2,25 +2,39 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>WebApp</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 	<div class="container">
-		<!-- <button class="passport-btn"> -->
-			<!-- <img src="icons/passport.png" alt="Passport Icon" class="passport-icon">Прикрепить паспорт -->
-		<!-- </button> -->
-		<h1 class="main-title">Crypto Exchanger - лучший обменник по СНГ</h1>
+		<h1 class="main-title">Crypto Exchange - лучший обменник криптовалюты по СНГ</h1>
 		<div class="button-group">
-			<button class="btn convert-btn" onclick="window.location.href='html/convert.html'">
-				<img src="icons/convert.png" alt="Convert Icon" class="btn-icon">Конвертировать
+			<button class="btn create-btn" onclick="navigateWithUserId('html/trade.html')">
+				<img src="icons/trade-white.png" alt="Trade Icon" class="btn-icon">Создать обмен
 			</button>
-			<button class="btn create-btn">
-				<img src="icons/trade.png" alt="Trade Icon" class="btn-icon">Создать обмен
+			<button class="btn history-btn" onclick="navigateWithUserId('html/history.html')">
+				<img src="icons/history-white.png" alt="Trade Icon" class="btn-icon">История обменов
+			</button>
+			<button class="btn profile-btn" onclick="navigateWithUserId('html/profile.html')">
+				<img src="icons/profile-white.png" alt="Convert Icon" class="btn-icon">Профиль
 			</button>
 		</div>
 	</div>
+	<script>
+		function navigateWithUserId(url) {
+			const urlParams = new URLSearchParams(window.location.search);
+			const userid = urlParams.get('userid');
+
+			if (userid) {
+				const separator = url.includes('?') ? '&' : '?';
+				url += separator + 'userid=' + userid;
+			}
+			
+			window.location.href = url;
+		}
+	</script>
 	<script src="javascript/script.js"></script>
 </body>
 </html>

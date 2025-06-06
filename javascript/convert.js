@@ -1,3 +1,9 @@
+// Автоматическое разворачивание Telegram WebApp на весь экран
+if (window.Telegram && window.Telegram.WebApp) {
+    window.Telegram.WebApp.ready();
+    window.Telegram.WebApp.expand();
+}
+
 function convertUSDTtoRUB() {
 	const usdtInput = document.getElementById('usdt-input').value
 	const rubInput = document.getElementById('rub-input')

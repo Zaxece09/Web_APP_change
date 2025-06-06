@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>История обменов</title>
+    <link rel="stylesheet" href="../css/history.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">История обменов</h1>
+        <div class="history-list" id="tradeHistoryBody">
+        </div>
+    </div>
+    <div class="modal" id="tradeModal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h2>Детали обмена</h2>
+            <p>ID:&nbsp;<span id="modal-id"></span></p>
+            <p>Дата и время:&nbsp;<span id="modal-date"></span></p>
+            <p>USDT:&nbsp;<span id="modal-usdt"></span><img src="../icons/usdt.png" alt="USDT Icon" class="currency-icon"></p>
+            <p>RUB:&nbsp;<span id="modal-rub"></span><img src="../icons/rub.png" alt="RUB Icon" class="currency-icon"></p>
+            <p>Имя:&nbsp;<span id="modal-name"></span></p>
+            <p>E-mail:&nbsp;<span id="modal-email"></span></p>
+            <p>Статус:&nbsp;<span id="modal-status"></span><img src="../icons/success.png" alt="Status Icon" class="status-icon"></p>
+        </div>
+    </div>
+    <div class="button-group">
+        <button class="btn create-btn" onclick="navigateWithUserId('trade.html')">
+            <img src="../icons/trade-white.png" alt="Trade Icon" class="btn-icon">Создать обмен
+        </button>
+        <button class="btn history-btn active" onclick="navigateWithUserId('history.html')">
+            <img src="../icons/history-white.png" alt="History Icon" class="btn-icon">История обменов
+        </button>
+        <button class="btn profile-btn" onclick="navigateWithUserId('profile.html')">
+            <img src="../icons/profile-white.png" alt="Profile Icon" class="btn-icon">Профиль
+        </button>
+    </div>
+    <script src="../javascript/history.js"></script>
+</body>
+</html>

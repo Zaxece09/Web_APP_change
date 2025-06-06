@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pass Control</title>
+    <link rel="stylesheet" href="../css/passport.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="button-group">
+        <button class="btn create-btn" onclick="navigateWithUserId('trade.html')">
+            <img src="../icons/trade-white.png" alt="Trade Icon" class="btn-icon">Создать обмен
+        </button>
+        <button class="btn history-btn" onclick="navigateWithUserId('history.html')">
+            <img src="../icons/history-white.png" alt="History Icon" class="btn-icon">История обменов
+        </button>
+        <button class="btn profile-btn" onclick="navigateWithUserId('profile.html')">
+            <img src="../icons/profile-white.png" alt="Profile Icon" class="btn-icon">Профиль
+        </button>
+    </div>
+    <div class="container">
+        <h1>Прикрепите фото паспорта</h1>
+        <div class="security-message">
+            <img src="../icons/security.png" alt="security-icon" class="security-icon">
+            <span>Ваши данные в безопасности, мы не передаем их третьим лицам.</span>
+        </div>
+        <div class="upload-container">
+            <div class="passport-preview" id="passportPreview">
+                <img id="previewImage" src="" alt="Preview" style="display: none;">
+                <div class="upload-placeholder" id="uploadPlaceholder">
+                    <i class="fas fa-passport"></i>
+                    <p>Нажмите или перетащите фото паспорта сюда</p>
+                </div>
+            </div>
+            <input type="file" id="passportInput" accept="image/*" class="file-input">
+            <button id="editButton" class="edit-btn" style="display: none;">Изменить фото</button>
+        </div>
+    </div>
+    <script>
+        // Функция для навигации с передачей userid
+        function navigateWithUserId(url) {
+            // Получаем userid из текущего URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const userid = urlParams.get('userid');
+            
+            // Если есть userid, добавляем его к новому URL
+            if (userid) {
+                const separator = url.includes('?') ? '&' : '?';
+                url += separator + 'userid=' + userid;
+            }
+            
+            window.location.href = url;
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/your-code-here.js" crossorigin="anonymous"></script>
+    <script src="../javascript/passport.js"></script>
+</body>
+</html>

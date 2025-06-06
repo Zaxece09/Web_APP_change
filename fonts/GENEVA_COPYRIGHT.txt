@@ -1,0 +1,1 @@
+Copyright 1990-2016 Apple Inc. Copyright 1990-98 Type Solutions Inc. Copyright 1990-98 The Font Bureau Inc.  TrueType outline design of Geneva typeface created by Kris Holmes and Charles Bigelow.

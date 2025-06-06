@@ -1,0 +1,327 @@
+@font-face {
+    font-family: 'Klukva';
+    src: url('../fonts/klukva.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Geneva';
+    src: url('../fonts/Geneva.ttf') format('truetype');
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #8B7D6B 0%, #D4CBB3 100%);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    touch-action: pan-x pan-y;
+    -webkit-text-size-adjust: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.main-title {
+    color: #ffffff;
+    font-size: 2rem;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 100%;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #918168 rgba(255, 255, 255, 0.1);
+    position: relative;
+    flex: 1;
+    margin-bottom: 100px;
+}
+
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #918168;
+    border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #a8997c;
+}
+
+.trade-form {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    font-family: 'Geneva';
+}
+
+.form-group label {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #918168;
+    border-radius: 8px;
+    background: rgba(145, 129, 104, 0.2);
+    color: #ffffff;
+    font-size: 1.0rem;
+    box-sizing: border-box;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+
+.form-group input:read-only {
+    background: rgba(145, 129, 104, 0.4);
+    cursor: default;
+}
+
+.form-group input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.form-group input[type="number"]::-webkit-outer-spin-button,
+.form-group input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: none;
+}
+
+.date-group {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.date-picker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.date-arrow {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.date-arrow:hover {
+    transform: scale(1.2);
+}
+
+.date-picker input {
+    flex: 1;
+    text-align: center;
+}
+
+.time-group {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.time-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.time-slot {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.time-slot:hover {
+    background: rgba(145, 129, 104, 0.3);
+}
+
+.time-slot input[type="radio"] {
+    margin: 0 8px 0 0;
+    accent-color: #918168;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background: #918168;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    background: #a8997c;
+    transform: translateY(-2px);
+}
+
+.button-group {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 8px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, rgba(139, 125, 107, 0.8), rgba(168, 153, 124, 0.8));
+    border-radius: 10px;
+    width: 110px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 6px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #A8997C, #D4CBB3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn.active {
+    background: #918168;
+}
+
+.btn-icon {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 4px;
+}
+
+.profile-btn {
+    height: 68px;
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.5rem;
+        margin: 15px 0;
+    }
+
+    .trade-form {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .form-group label {
+        font-size: 0.8rem;
+    }
+
+    .form-group input {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    .date-arrow {
+        width: 16px;
+        height: 16px;
+    }
+
+    .time-slot {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+
+    .time-slot input[type="radio"] {
+        width: 14px;
+        height: 14px;
+        margin-right: 6px;
+    }
+
+    .submit-btn {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .button-group {
+        bottom: 10px;
+        gap: 10px;
+        padding: 6px;
+    }
+
+    .btn {
+        width: 90px;
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+
+    .btn-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
