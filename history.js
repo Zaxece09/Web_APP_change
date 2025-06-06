@@ -46,6 +46,8 @@ function displayTradeHistory(trades) {
 		displayEmptyHistory()
 		return
 	}
+
+	let historyHTML = '<h2 class="section-title">История ваших обменов</h2>'
 	
 	trades.forEach(trade => {
 		const statusClass = getStatusClass(trade.status)
@@ -74,6 +76,7 @@ function displayTradeHistory(trades) {
 function displayEmptyHistory() {
 	const historyContainer = document.querySelector('.history-container')
 	historyContainer.innerHTML = `
+		<h2 class="section-title">История ваших обменов</h2>
 		<div class="empty-history">
 			<p>У вас пока нет обменов</p>
 			<button onclick="navigateWithUserId('trade.html')" class="empty-btn">Создать первый обмен</button>
