@@ -39,24 +39,6 @@ python app.py
 python bot.py
 ```
 
-## Структура проекта
-
-```
-DENCHIK WEBAPP/
-├── app.py              # Flask приложение с API
-├── bot.py              # Telegram бот на aiogram
-├── run.py              # Скрипт для запуска всего приложения
-├── config.py           # Конфигурация
-├── models.py           # Модели базы данных
-├── database.py         # Подключение к БД
-├── requirements.txt    # Зависимости Python
-├── html/              # HTML файлы
-├── javascript/        # JavaScript файлы  
-├── css/               # CSS стили
-├── icons/             # Иконки
-└── images/            # Изображения
-```
-
 ## Настройка
 
 ### PostgreSQL
@@ -122,17 +104,6 @@ DENCHIK WEBAPP/
 | updated_at | DateTime | Дата обновления |
 
 ## Особенности
-
-### Frontend интеграция с Telegram WebApp
-
-JavaScript файлы автоматически получают `userid` из Telegram WebApp API:
-
-```javascript
-if (window.Telegram && window.Telegram.WebApp) {
-    window.Telegram.WebApp.ready();
-    userid = window.Telegram.WebApp.initDataUnsafe?.user?.id;
-}
-```
 
 ### Хранение изображений
 
