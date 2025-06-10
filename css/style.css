@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-image: url('/icons/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.universal-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0F0E0D 0%, #1A1612 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding-top: var(--safe-area-inset-top);
+    padding-bottom: var(--safe-area-inset-bottom);
+    padding-left: var(--safe-area-inset-left);
+    padding-right: var(--safe-area-inset-right);
+}
+
+.loader-content {
+    text-align: center;
+    color: #FFEED8;
+    max-width: 350px;
+    width: 90%;
+}
+
+.loader-logo {
+    margin-bottom: 50px;
+}
+
+.logo-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    animation: logoFloat 2s ease-in-out infinite;
+}
+
+.loader-logo h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #FFDA9E;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.progress-container {
+    margin-top: 40px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(114, 95, 68, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #725F44 0%, #FFDA9E 50%, #B8A082 100%);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 218, 158, 0.5);
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: progressShine 1.5s ease-in-out infinite;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #B8A082;
+}
+
+#progress-status {
+    font-weight: 500;
+}
+
+#progress-percent {
+    font-weight: 600;
+    color: #FFDA9E;
+    min-width: 40px;
+    text-align: right;
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes progressShine {
+    0% { left: -50px; }
+    100% { left: 100%; }
+}
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	margin-bottom: 150px;
+}
+
+.welcome-text {
+	margin: 0;
+    font-size: 1.5rem;
+	position: relative;
+	top: 15px;
+	color: #FFEED8;
+    letter-spacing: 0.2em;
+}
+
+.welcome-text-bottom {
+	font-size: 1.4rem;
+}
+
+.bottom-content {
+    position: absolute;
+    bottom: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+button {
+    background-color: #D0B07D;
+    color: #000002;
+    border: none;
+	border-top: 1.5px solid white;
+    border-radius: 50px;
+    padding: 10px 50px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:focus,
+button:focus-visible {
+    outline: none;
+}

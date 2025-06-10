@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Чат с поддержкой</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+	<link rel="stylesheet" href="../css/chat.css">
+    <script src="/javascript/webapp-utils.js"></script>
+    <script src="/javascript/universal-loader.js"></script>
+</head>
+<body>
+    <div id="universal-loader" class="universal-loader">
+		<div class="loader-content">
+			<div class="loader-logo">
+				<div class="logo-icon">💎</div>
+				<h2>Crypto Exchange</h2>
+			</div>
+			<div class="progress-container">
+				<div class="progress-bar">
+					<div id="progress-fill" class="progress-fill"></div>
+				</div>
+				<div class="progress-text">
+					<span id="progress-status">Инициализация...</span>
+					<span id="progress-percent">0%</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="chat-container">
+        <div class="header">
+            <img src="../img/avatar.png" alt="Avatar" class="avatar">
+            <div class="user-info">
+                <div class="name">Курьер</div>
+                <div class="status">в сети</div>
+            </div>
+            <button id="back-btn" class="back-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+
+        <div class="chat-messages">
+            <!-- <div class="message incoming">
+                <span>Здравствуйте! 👋 Ваш Заказ Собран И Готов К Выдаче. Ждём Вас! 😊</span>
+            </div>
+            <div class="message outgoing">
+                <span>Спасибо Большое! А До Скольки Можно Забрать?</span>
+            </div>
+            <div class="message incoming">
+                <span>Сегодня Мы Работаем До 21:00. Успеете?</span>
+            </div>
+            <div class="message outgoing">
+                <span>Да, Приду К 19:30. Спасибо!</span>
+            </div>
+             <div class="message incoming">
+                <span>Сегодня Мы Работаем До 21:00. Успеете?</span>
+            </div>
+            <div class="message outgoing emoji-message">
+                <span class="heart">❤️</span>
+                <div class="seen-status">просмотрено.</div>
+            </div> -->
+        </div>
+
+        <div class="chat-input-area">
+            <i class="fa-solid fa-paperclip icon-btn"></i>
+            <div class="input-wrapper">
+                <input type="text" placeholder="Сообщение">
+                <i id="emoji-btn" class="fa-regular fa-face-smile icon-btn"></i>
+            </div>
+            <button class="send-btn">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+
+        <div id="attachment-preview-area" class="attachment-preview-area" style="display: none;">
+            <div class="attachment-content">
+                <i id="attachment-icon" class="fa-solid fa-file"></i>
+                <div class="attachment-info">
+                    <span id="attachment-filename"></span>
+                    <div class="progress-bar">
+                        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                    </div>
+                    <span id="upload-status" class="upload-status">Загрузка...</span>
+                </div>
+            </div>
+            <button id="cancel-attachment" class="cancel-attachment-btn">&times;</button>
+        </div>
+        <div id="emoji-picker-container" class="hidden">
+            <emoji-picker></emoji-picker>
+        </div>
+    </div>
+
+    <input type="file" id="file-input" hidden accept=".pdf,.jpg,.jpeg,.png,.docx,.mp4,.mov">
+
+    <div id="file-viewer-modal" class="modal-overlay">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 id="viewer-filename"></h3>
+                <button id="close-viewer-modal" class="close-btn">&times;</button>
+            </div>
+            <div id="viewer-body" class="modal-body"></div>
+        </div>
+    </div>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+    <script src="../javascript/chat.js"></script>
+</body>
+</html>

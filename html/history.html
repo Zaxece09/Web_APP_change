@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>История обмена</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/history.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="/javascript/webapp-utils.js"></script>
+    <script src="/javascript/universal-loader.js"></script>
+</head>
+<body>
+	<div id="universal-loader" class="universal-loader">
+		<div class="loader-content">
+			<div class="loader-logo">
+				<div class="logo-icon">💎</div>
+				<h2>Crypto Exchange</h2>
+			</div>
+			<div class="progress-container">
+				<div class="progress-bar">
+					<div id="progress-fill" class="progress-fill"></div>
+				</div>
+				<div class="progress-text">
+					<span id="progress-status">Инициализация...</span>
+					<span id="progress-percent">0%</span>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="history-container">
+        <h1>Ваша История<br>Обменов</h1>
+
+        <div class="content-box">
+            <div class="filter-buttons">
+                <button class="filter-btn">ID</button>
+                <button class="filter-btn">Дата</button>
+                <button class="filter-btn">Сумма</button>
+                <button class="filter-btn">Статус</button>
+            </div>
+
+            <div class="history-list">
+                <!-- Item 1 -->
+                <div class="history-item-wrapper">
+                    <div class="history-item">
+                        <span class="history-item-data">12212</span>
+                        <span class="history-item-data">21.08.2026</span>
+                        <span class="history-item-data">6000$</span>
+                        <div class="history-item-data status-icon-container">
+                            <div class="status-icon success"></div>
+                        </div>
+                    </div>
+                    <div class="history-item-details">
+                        <p><strong>ID:</strong><span>12212</span></p>
+                        <p><strong>Имя:</strong><span>Иван Петров</span></p>
+                        <p><strong>Дата:</strong><span>21.08.2026</span></p>
+                        <p><strong>Время:</strong><span>14:35</span></p>
+                        <p><strong>USDT:</strong><span class="currency-value">6000</span></p>
+                        <p><strong>RUB:</strong><span class="currency-value">540,000</span></p>
+                        <p><strong>ХЭШ:</strong><span class="hash">0xAbCd...Ef12</span></p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="history-item-wrapper">
+                    <div class="history-item">
+                        <span class="history-item-data">12213</span>
+                        <span class="history-item-data">20.08.2026</span>
+                        <span class="history-item-data">3500$</span>
+                        <div class="history-item-data status-icon-container">
+                            <div class="status-icon fail"></div>
+                        </div>
+                    </div>
+                    <div class="history-item-details">
+                        <p><strong>ID:</strong><span>12213</span></p>
+                        <p><strong>Имя:</strong><span>Анна Сидорова</span></p>
+                        <p><strong>Дата:</strong><span>20.08.2026</span></p>
+                        <p><strong>Время:</strong><span>11:15</span></p>
+                        <p><strong>USDT:</strong><span class="currency-value">3500</span></p>
+                        <p><strong>RUB:</strong><span class="currency-value">315,000</span></p>
+                        <p><strong>ХЭШ:</strong><span class="hash">0x1234...5678</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="trade.html" class="nav-item">
+            <img src="../icons/trading-icon.png" alt="Обмен">
+            <span>Обмен</span>
+        </a>
+        <a href="history.html" class="nav-item active">
+            <img src="../icons/history-icon.png" alt="История">
+            <span>История</span>
+        </a>
+        <a href="home.html" class="nav-item">
+            <img src="../icons/profile-icon.png" alt="Профиль">
+            <span>Профиль</span>
+        </a>
+    </nav>
+    <script src="../javascript/history.js"></script>
+</body>
+</html>

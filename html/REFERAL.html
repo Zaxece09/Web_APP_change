@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Реферальная система</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/REFERAL.css">
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="/javascript/webapp-utils.js"></script>
+    <script src="/javascript/universal-loader.js"></script>
+</head>
+<body>
+	<div id="universal-loader" class="universal-loader">
+		<div class="loader-content">
+			<div class="loader-logo">
+				<div class="logo-icon">💎</div>
+				<h2>Crypto Exchange</h2>
+			</div>
+			<div class="progress-container">
+				<div class="progress-bar">
+					<div id="progress-fill" class="progress-fill"></div>
+				</div>
+				<div class="progress-text">
+					<span id="progress-status">Инициализация...</span>
+					<span id="progress-percent">0%</span>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="container" style="display: none;">
+        <div class="referral-card">
+            <h2>Реферальная система</h2>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-value" id="referral-count">0</div>
+                    <div class="stat-label">Приглашено друзей</div>
+                </div>
+            </div>
+            
+            <div class="link-section">
+                <label for="referral-link">Ваша реферальная ссылка:</label>
+                <div class="input-container">
+                    <input type="text" id="referral-link" value="Загрузка..." readonly>
+                </div>
+                <div class="button-group">
+                    <button id="copy-btn" class="btn-primary">
+                        <i class="fas fa-copy"></i> Скопировать
+                    </button>
+                    <button id="share-btn" class="btn-secondary">
+                        <i class="fas fa-share"></i> Поделиться
+                    </button>
+                </div>
+            </div>
+            
+            <button id="ok-btn" class="btn-ok">OK</button>
+        </div>
+    </div>
+
+    <nav class="bottom-nav" style="display: none;">
+        <a href="TRADE.html" class="nav-item" id="trade-nav">
+            <img src="/icons/trading-icon.png" alt="Обмен">
+            <span>Обмен</span>
+        </a>
+        <a href="history.html" class="nav-item" id="history-nav">
+            <img src="/icons/history-icon.png" alt="История">
+            <span>История</span>
+        </a>
+        <a href="home.html" class="nav-item" id="profile-nav">
+            <img src="/icons/profile-icon.png" alt="Профиль">
+            <span>Профиль</span>
+        </a>
+    </nav>
+    <script src="../javascript/referal.js"></script>
+</body>
+</html>

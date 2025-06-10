@@ -1,0 +1,303 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.universal-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0F0E0D 0%, #1A1612 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding-top: var(--safe-area-inset-top);
+    padding-bottom: var(--safe-area-inset-bottom);
+    padding-left: var(--safe-area-inset-left);
+    padding-right: var(--safe-area-inset-right);
+}
+
+.loader-content {
+    text-align: center;
+    color: #FFEED8;
+    max-width: 350px;
+    width: 90%;
+}
+
+.loader-logo {
+    margin-bottom: 50px;
+}
+
+.logo-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    animation: logoFloat 2s ease-in-out infinite;
+}
+
+.loader-logo h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #FFDA9E;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.progress-container {
+    margin-top: 40px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(114, 95, 68, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #725F44 0%, #FFDA9E 50%, #B8A082 100%);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 218, 158, 0.5);
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: progressShine 1.5s ease-in-out infinite;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #B8A082;
+}
+
+#progress-status {
+    font-weight: 500;
+}
+
+#progress-percent {
+    font-weight: 600;
+    color: #FFDA9E;
+    min-width: 40px;
+    text-align: right;
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes progressShine {
+    0% { left: -50px; }
+    100% { left: 100%; }
+}
+
+.form-page {
+    background-color: #0F0E0D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.form-page .form-container {
+    background-color: #1A1612;
+    padding: 30px;
+    border-radius: 20px;
+    width: 75%;
+    max-width: 350px;
+	border: none;
+    box-shadow: 0 0 4px 0 #725F44;
+}
+
+.form-page .form-group {
+    margin-bottom: 20px;
+}
+
+#passport-text {
+	color: #725F44;
+}
+
+.form-page .form-group label {
+    display: block;
+    color: #FFEED8;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.form-page .form-group input[type="text"],
+.form-page .form-group input[type="tel"],
+.form-page .form-group input[type="email"] {
+    width: 100%;
+    padding: 15px;
+    background-color: transparent;
+    border: 1.8px solid #725F44;
+    border-radius: 15px;
+    color: #FFEED8;
+    font-size: 1rem;
+    box-sizing: border-box;
+	outline: none;
+}
+
+.form-page .form-group input::placeholder {
+    color: #99805A;
+}
+
+.form-page .file-upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    border: 2px dashed #98815C;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: #98815C;
+    height: 150px;
+    transition: background-color 0.3s ease;
+}
+
+.form-page .file-upload-container:hover {
+    background-color: rgba(152, 129, 92, 0.1);
+}
+
+.form-page .file-upload-container .upload-icon {
+    margin-bottom: 10px;
+    stroke: #98815C;
+}
+
+.form-page .file-upload-container p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.form-page .submit-btn,
+.form-page #submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #725F44;
+    border: 1px solid #725F44;
+    border-radius: 25px;
+    color: #FFEED8;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-page .submit-btn:hover,
+.form-page #submit-button:hover {
+    background-color: #99805A;
+    border-color: #99805A;
+}
+
+.form-page .submit-btn:focus,
+.form-page .submit-btn:focus-visible,
+.form-page #submit-button:focus,
+.form-page #submit-button:focus-visible {
+    outline: none;
+}
+
+.form-page .submit-btn:disabled,
+.form-page #submit-button:disabled {
+    background-color: #555;
+    border-color: #555;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #201a127a;
+	backdrop-filter: blur(5px);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #d0b07da8;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 450px;
+    text-align: center;
+    color: #FFDA9E;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    box-shadow: 0 0 5px 0 #D0B07D;
+}
+
+.form-page .modal#errorModal .modal-content button {
+    background-color: #AA8E64;
+    border: none;
+    color: #000002;
+    padding: 10px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-page .modal#successModal .modal-content button,
+.form-page .modal .modal-content #continueBtn {
+    background-color: #AA8E64;
+    border: none;
+    color: #000002;
+    padding: 12px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.form-page .modal#successModal .modal-content button:hover,
+.form-page .modal .modal-content #continueBtn:hover {
+    background-color: #B8A082;
+}
+
+@media (max-width: 480px) {
+    .form-page .form-container {
+        margin-top: 60px;
+    }
+}

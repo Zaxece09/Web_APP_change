@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Главная</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="/javascript/webapp-utils.js"></script>
+    <script src="/javascript/universal-loader.js"></script>
+</head>
+<body>
+    <div id="universal-loader" class="universal-loader">
+		<div class="loader-content">
+			<div class="loader-logo">
+				<div class="logo-icon">💎</div>
+				<h2>Crypto Exchange</h2>
+			</div>
+			<div class="progress-container">
+				<div class="progress-bar">
+					<div id="progress-fill" class="progress-fill"></div>
+				</div>
+				<div class="progress-text">
+					<span id="progress-status">Завершено</span>
+					<span id="progress-percent">100%</span>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="container">
+        <header class="home-header">
+            <h1>Привет</h1>
+            <h2 id="username">@username</h2>
+            <div class="header-buttons">
+                <button id="referral-btn" class="btn-main">Реферальная система</button>
+                <button class="btn-secondary">Курс</button>
+            </div>
+        </header>
+
+        <main class="home-main">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../img/adv_one.png" alt="Реклама" class="adv-img"></div>
+                    <div class="swiper-slide"><img src="../img/adv_two.png" alt="Реклама" class="adv-img"></div>
+                    <div class="swiper-slide"><img src="../img/adv_one.png" alt="Реклама" class="adv-img"></div>
+                    <div class="swiper-slide"><img src="../img/adv_two.png" alt="Реклама" class="adv-img"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <a href="#" class="privacy-link">Политика конфиденциальности и<br>отказ от ответственности</a>
+        </main>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="trade.html" class="nav-item">
+            <img src="/icons/trading-icon.png" alt="Обмен">
+            <span>Обмен</span>
+        </a>
+        <a href="history.html" class="nav-item">
+            <img src="/icons/history-icon.png" alt="История">
+            <span>История</span>
+        </a>
+        <a href="home.html" class="nav-item active">
+            <img src="/icons/profile-icon.png" alt="Профиль">
+            <span>Профиль</span>
+        </a>
+    </nav>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../javascript/home.js"></script>
+</body>
+</html>

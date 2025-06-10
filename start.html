@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Добро Пожаловать</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/tgs-player.js"></script>
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+	<script src="/javascript/webapp-utils.js"></script>
+	<script src="/javascript/universal-loader.js"></script>
+</head>
+<body>
+	<div id="universal-loader" class="universal-loader">
+		<div class="loader-content">
+			<div class="loader-logo">
+				<div class="logo-icon">💎</div>
+				<h2>Crypto Exchange</h2>
+			</div>
+			<div class="progress-container">
+				<div class="progress-bar">
+					<div id="progress-fill" class="progress-fill"></div>
+				</div>
+				<div class="progress-text">
+					<span id="progress-status">Инициализация...</span>
+					<span id="progress-percent">0%</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="welcome-screen" class="welcome-container" style="display: none;">
+		<div id="new-user-content" style="display: none;">
+			<tgs-player
+				autoplay
+				loop
+				mode="normal"
+				src="/icons/welcomepage.tgs"
+				style="width: 300px; height: 300px;"
+			></tgs-player>
+			<div class="bottom-content">
+				<div>
+					<p class="welcome-text">Перед началом</p>
+					<p class="welcome-text welcome-text-bottom">заполни анкету</p>
+				</div>
+				<button id="startButton">Начать</button>
+			</div>
+		</div>
+
+		<div id="existing-user-content" style="display: none;">
+			<tgs-player
+				autoplay
+				loop
+				mode="normal"
+				src="/icons/welcomepage.tgs"
+				style="width: 300px; height: 300px;"
+			></tgs-player>
+			<div class="bottom-content">
+				<div>
+					<p class="welcome-text">С возвращением!</p>
+					<p class="welcome-text welcome-text-bottom">Продолжите работу</p>
+				</div>
+				<button id="continueButton">Продолжить</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="javascript/start.js"></script>
+</body>
+</html>

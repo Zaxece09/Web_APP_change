@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Обмен</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/tgs-player.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/css/trade.css">
+    <script src="/javascript/webapp-utils.js"></script>
+    <script src="/javascript/universal-loader.js"></script>
+</head>
+<body>
+	<div id="universal-loader" class="universal-loader">
+		<div class="loader-content">
+			<div class="loader-logo">
+				<div class="logo-icon">💎</div>
+				<h2>Crypto Exchange</h2>
+			</div>
+			<div class="progress-container">
+				<div class="progress-bar">
+					<div id="progress-fill" class="progress-fill"></div>
+				</div>
+				<div class="progress-text">
+					<span id="progress-status">Инициализация...</span>
+					<span id="progress-percent">0%</span>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="trade-container" id="step1">
+	    <h1>Введите сумму обмена</h1>
+        <div class="step-wrapper">
+            <div class="input-group unified-input">
+                <input type="text" value="" style="border: none; border-radius: 0;" placeholder="Сумма обмена">
+                <div class="currency-selector-vertical">
+                    <div class="currency-display">
+                        <img src="/icons/tether-icon.png" alt="Tether" class="currency-icon">
+                        <span>TETHER</span> 
+                    </div>
+                    <div class="arrow-column">
+                        <button class="arrow-btn-vertical">▲</button>
+                        <button class="arrow-btn-vertical">▼</button>
+                    </div>
+                </div>
+            </div>
+            <p class="exchange-rate">≈ ₽</p>
+            <div class="total-box">Итого: 1,000,000₽</div>
+            <button class="btn-primary" id="continue-button" data-next="step2">Продолжить</button>
+        </div>
+    </div>
+
+    <div class="trade-container" id="step2" style="display: none;">
+			<h1>Введите удобное<br>время для обмена</h1>
+        <div class="step-wrapper">
+            <div class="time-selector">
+                <button class="arrow-btn">&lt;</button>
+                <span>09.06.2025</span>
+                <button class="arrow-btn">&gt;</button>
+            </div>
+            <div class="time-slots">
+                <button class="time-slot">12:00-14:00</button>
+                <button class="time-slot">14:00-16:00</button>
+                <button class="time-slot">16:00-18:00</button>
+            </div>
+            <button class="btn-primary" id="continue-button" data-next="step3">Продолжить</button>
+        </div>
+    </div>
+
+    <div class="trade-container" id="step3" style="display: none;">
+			<h1>Переведите<br>КОЛ-ВО USDT на адрес</h1>
+        <div class="step-wrapper">
+            <div class="address-box">0x8fC295A3F2544A7Df5d4A7C1c2C34aFc2C4d91bE</div>
+            <div class="input-group">
+                 <label for="hash">Хэш об оплате</label>
+                 <input type="text" id="hash" placeholder="пример: 0x12ab...">
+            </div>
+            <div class="button-row">
+                <button class="btn-secondary" id="cancel-button" data-back="step1">Отмена</button>
+                <button class="btn-accent" id="pay-button" data-next="step4">Оплатить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="trade-container centered" id="step4" style="display: none;">
+        <tgs-player autoplay loop mode="normal" src="/icons/congratulations.tgs" class="success-lottie"></tgs-player>
+        <h2>Успешно!</h2>
+        <button class="btn-accent" data-next="step5">OK</button>
+    </div>
+
+    <div class="trade-container centered" id="step5" style="display: none;">
+        <p class="courier-text">Курьер будет у вас в течении 3 часов не забудьте уточнить<br>адрес встречи в чате</p>
+        <tgs-player autoplay loop mode="normal" src="/icons/men_with_laptop.tgs" class="courier-lottie"></tgs-player>
+        <button class="btn-primary" id="chat-button">Чат с курьером</button>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="trade.html" class="nav-item active">
+            <img src="/icons/trading-icon.png" alt="Обмен">
+            <span>Обмен</span>
+        </a>
+        <a href="history.html" class="nav-item">
+            <img src="/icons/history-icon.png" alt="История">
+            <span>История</span>
+        </a>
+        <a href="home.html" class="nav-item">
+            <img src="/icons/profile-icon.png" alt="Профиль">
+            <span>Профиль</span>
+        </a>
+    </nav>
+
+    <script src="/javascript/trade.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета</title>
+    <link rel="stylesheet" href="/css/start.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="/javascript/webapp-utils.js"></script>
+    <script src="/javascript/universal-loader.js"></script>
+</head>
+<body class="form-page">
+    <div id="universal-loader" class="universal-loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <div class="logo-icon">💎</div>
+                <h2>Crypto Exchange</h2>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="progress-status">Инициализация...</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-container" style="display: none;">
+        <form id="profileForm">
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" id="name" placeholder="введите свое имя...">
+            </div>
+            <div class="form-group">
+                <label for="phone1">Номер телефона</label>
+                <input type="tel" id="phone1" placeholder="введите свой номер...">
+            </div>
+            <div class="form-group">
+                <label for="phone2">Номер телефона (2)</label>
+                <input type="tel" id="phone2" placeholder="введите свой номер...">
+            </div>
+            <div class="form-group">
+                <label for="email">Почта</label>
+                <input type="email" id="email" placeholder="введите свою почту...">
+            </div>
+            <div class="form-group">
+                <label>Паспорт</label>
+                <label for="passport" class="file-upload-container">
+                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <p id="passport-text">нажмите, чтобы загрузить<br>фото паспорта</p>
+                </label>
+                <input type="file" id="passport" hidden>
+            </div>
+            <button id="submit-button" type="button">ДАЛЕЕ</button>
+        </form>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <p>Регистрация успешно завершена!</p>
+            <p style="font-size: 1rem; margin-top: 15px; color: #B8A082;">Перенаправление на главную страницу...</p>
+        </div>
+    </div>
+
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <p id="errorMessage"></p>
+            <button id="closeErrorModal">ОК</button>
+        </div>
+    </div>
+
+    <div id="error-modal" class="modal">
+        <div class="modal-content">
+            <p>Все поля должны быть заполнены</p>
+            <button id="close-modal-btn">OK</button>
+        </div>
+    </div>
+
+    <script src="../javascript/form.js"></script>
+</body>
+</html> 
